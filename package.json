@@ -1,0 +1,40 @@
+{
+  "name": "CONFERENCE",
+  "version": "1.0.1",
+  "author": "DevsBlink",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@types/aos": "^3.0.4",
+    "nuxt": "3.0.0"
+  },
+  "dependencies": {
+    "@fawmi/vue-google-maps": "0.9.72",
+    "@tabler/icons-vue": "^2.42.0",
+    "@vuelidate/core": "^2.0.3",
+    "@vuelidate/validators": "^2.0.3",
+    "@yeger/vue-masonry-wall": "^4.1.0",
+    "aos": "^2.3.4",
+    "axios": "^1.6.0",
+    "bootstrap": "^5.2.3",
+    "emailjs-com": "^3.2.0",
+    "localstorage-slim": "^2.4.0",
+    "moment": "^2.29.4",
+    "parallax-js": "^3.1.0",
+    "rellax": "^1.12.1",
+    "sass": "^1.57.1",
+    "swiper": "^9.0.2",
+    "v-pagination-3": "^0.1.7",
+    "vue-awesome-swiper": "^5.0.1",
+    "vue-easy-lightbox": "^1.16.0",
+    "vue3-carousel": "^0.2.9",
+    "vue3-toastify": "latest",
+    "vuex": "^4.1.0"
+  }
+}
