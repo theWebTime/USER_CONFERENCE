@@ -38,32 +38,6 @@
                   available for you
                 </h6>
               </div>
-              <!-- <div class="sorting-right">
-                <div class="layout-switcher">
-                  <label>Grid</label>
-                  <ul class="switcher-btn">
-                    <li>
-                      <NuxtLink to="/course/course-one"
-                        ><i class="icon-53"></i
-                      ></NuxtLink>
-                    </li>
-                    <li>
-                      <NuxtLink to="/course/course-four" class="active"
-                        ><i class="icon-54"></i>
-                      </NuxtLink>
-                    </li>
-                  </ul>
-                </div>
-                <div class="edu-sorting">
-                  <div class="icon"><i class="icon-55"></i></div>
-                  <select class="edu-select">
-                    <option>Filters</option>
-                    <option>Low To High</option>
-                    <option>High Low To</option>
-                    <option>Last Viewed</option>
-                  </select>
-                </div>
-              </div> -->
             </div>
 
             <div
@@ -77,14 +51,18 @@
               >
                 <div class="inner">
                   <div class="thumbnail">
-                    <NuxtLink v-if="conference.logo">
+                    <nuxt-link
+                      v-if="conference.logo"
+                      :to="conference.domain"
+                      target="_blank"
+                    >
                       <img
                         :src="conference.logo"
                         height="400"
                         width="300"
                         :alt="conference.alt"
                       />
-                    </NuxtLink>
+                    </nuxt-link>
                     <div class="time-top" v-if="conference.date">
                       <span class="duration"
                         ><i class="icon-61"></i>{{ conference.date }}</span
@@ -93,26 +71,20 @@
                   </div>
                   <div class="content">
                     <div class="course-price" v-if="conference.domain">
-                      {{ conference.domain }}
+                      <nuxt-link :to="conference.domain" target="_blank">{{
+                        conference.domain
+                      }}</nuxt-link>
                     </div>
                     <h6 class="title" v-if="conference.title">
-                      <NuxtLink to="">{{ conference.title }}</NuxtLink>
+                      <nuxt-link :to="conference.domain" target="_blank">{{
+                        conference.title
+                      }}</nuxt-link>
                     </h6>
                     <div class="course-rating" v-if="conference.address">
                       <span class="rating-count"
                         ><IconMapPin></IconMapPin>{{ conference.address }}</span
                       >
                     </div>
-                    <!--
-                        <div class="rating">
-                          <i class="icon-23"></i>
-                          <i class="icon-23"></i>
-                          <i class="icon-23"></i>
-                          <i class="icon-23"></i>
-                          <i class="icon-23"></i>
-                        </div>
-                      </div> -->
-                    <!-- <p>{{ course.excerpt2 }}</p> -->
                     <ul class="course-meta">
                       <li v-if="conference.contact_number1">
                         <IconPhone></IconPhone>{{ conference.contact_number1 }}
@@ -134,67 +106,8 @@
                     </ul>
                   </div>
                 </div>
-                <!--  <div class="hover-content-aside">
-                    <div class="content">
-                      <span class="course-level">{{ course.category }}</span>
-                      <h5 class="title">
-                        <NuxtLink to="/course/course-details">{{
-                          course.title
-                        }}</NuxtLink>
-                      </h5>
-                      <div class="course-rating">
-                        <div class="rating">
-                          <i class="icon-23"></i>
-                          <i class="icon-23"></i>
-                          <i class="icon-23"></i>
-                          <i class="icon-23"></i>
-                          <i class="icon-23"></i>
-                        </div>
-                        <span class="rating-count"
-                          >({{ course.ratingAvarage }})</span
-                        >
-                      </div>
-                      <ul class="course-meta">
-                        <li>
-                          {{ course.lessons }}
-                          {{ course.lessons > 1 ? "Lessons" : "Lesson" }}
-                        </li>
-                        <li>{{ course.duration }}</li>
-                        <li>{{ course.level }}</li>
-                      </ul>
-                      <div class="course-feature">
-                        <h6 class="title">What You’ll Learn?</h6>
-                        <ul>
-                          <li
-                            v-for="(feature, key) in course.features.slice(0, 3)"
-                            :key="key"
-                          >
-                            {{ feature }}
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="button-group">
-                        <a href="#" class="edu-btn btn-medium">Add to Cart</a>
-                        <a href="#" class="wishlist-btn btn-outline-dark"
-                          ><i class="icon-22"></i
-                        ></a>
-                      </div>
-                    </div>
-                  </div> -->
               </div>
             </div>
-
-            <!--   <div v-if="getPaginateCount > 1">
-              <div class="edublink-vue-pagination">
-                <pagination
-                  v-model="currentPage"
-                  :per-page="perPage"
-                  :records="courseItems.length"
-                  @paginate="paginateClickCallback"
-                  :options="paginationOptions"
-                />
-              </div>
-            </div> -->
           </div>
         </div>
       </div>
@@ -216,8 +129,6 @@ import ScrollToTop from "~~/components/footer/ScrollToTop.vue";
 import courseItemsMixin from "../mixins/courseItemsMixin";
 import Pagination from "v-pagination-3";
 import { IconMail, IconPhone, IconMapPin } from "@tabler/icons-vue";
-import { NuxtLink } from "~~/.nuxt/components";
-
 export default {
   mixins: [courseItemsMixin],
   components: {
@@ -231,7 +142,6 @@ export default {
     IconMail,
     IconPhone,
     IconMapPin,
-    NuxtLink,
   },
   data() {
     return {
