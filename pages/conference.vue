@@ -16,10 +16,10 @@
                     <br />
                     <select
                       class="edu-select"
-                      v-model="date"
+                      v-model="fetchConference"
                       @change="fetchDataConference()"
                     >
-                      <option value="">Select Conference Date</option>
+                      <option value="">All Conference Date</option>
                       <option value="previousDate">
                         Previous Date Conference
                       </option>
@@ -40,7 +40,7 @@
                       v-model="filterConferenceTag"
                       @change="fetchDataConference()"
                     >
-                      <option value="">Select Conference Tag</option>
+                      <option value="">All Conference Tag</option>
                       <option
                         v-for="(item, index) in data_fetch_conference_tag"
                         :key="index"
@@ -62,7 +62,7 @@
                       v-model="filterConferenceType"
                       @change="fetchDataConference()"
                     >
-                      <option value="">Select Conference Tag</option>
+                      <option value="">All Conference Tag</option>
                       <option
                         v-for="(item, index) in data_fetch_conference_type"
                         :key="index"
@@ -112,7 +112,7 @@
                     <select
                       class="edu-select"
                       v-model="filterCity"
-                      @change="fetchDataSchool()"
+                      @change="fetchDataConference()"
                     >
                       <option value="">Select City</option>
                       <option
@@ -137,75 +137,86 @@
                 </h6>
               </div>
             </div>
-
-            <div
-              class="edu-course-six-each-item"
-              v-for="(conference, key) in conference"
-              :key="key"
-            >
+            <template v-if="conference.length >= 1">
               <div
-                class="edu-course course-style-4 course-style-8"
-                :class="extraClass"
+                class="edu-course-six-each-item"
+                v-for="(conference, key) in conference"
+                :key="key"
               >
-                <div class="inner">
-                  <div class="thumbnail">
-                    <nuxt-link
-                      v-if="conference.logo"
-                      :to="conference.domain"
-                      target="_blank"
-                    >
-                      <img
-                        :src="conference.logo"
-                        height="400"
-                        width="300"
-                        :alt="conference.alt"
-                      />
-                    </nuxt-link>
-                    <div class="time-top" v-if="conference.date">
-                      <span class="duration"
-                        ><i class="icon-61"></i>{{ conference.date }}</span
+                <div
+                  class="edu-course course-style-4 course-style-8"
+                  :class="extraClass"
+                >
+                  <div class="inner">
+                    <div class="thumbnail">
+                      <nuxt-link
+                        v-if="conference.logo"
+                        :to="conference.domain"
+                        target="_blank"
                       >
+                        <img
+                          :src="conference.logo"
+                          height="400"
+                          width="300"
+                          :alt="conference.alt"
+                        />
+                      </nuxt-link>
+                      <div class="time-top" v-if="conference.date">
+                        <span class="duration"
+                          ><i class="icon-61"></i>{{ conference.date }}</span
+                        >
+                      </div>
                     </div>
-                  </div>
-                  <div class="content">
-                    <div class="course-price" v-if="conference.domain">
-                      <nuxt-link :to="conference.domain" target="_blank">{{
-                        conference.domain
-                      }}</nuxt-link>
+                    <div class="content">
+                      <div class="course-price" v-if="conference.domain">
+                        <nuxt-link :to="conference.domain" target="_blank">{{
+                          conference.domain
+                        }}</nuxt-link>
+                      </div>
+                      <h6 class="title" v-if="conference.conference_title">
+                        <nuxt-link :to="conference.domain" target="_blank">{{
+                          conference.conference_title
+                        }}</nuxt-link>
+                      </h6>
+                      <div class="course-rating" v-if="conference.address">
+                        <span class="rating-count"
+                          ><IconMapPin></IconMapPin
+                          >{{ conference.address }}</span
+                        >
+                      </div>
+                      <ul class="course-meta">
+                        <li v-if="conference.contact_number1">
+                          <IconPhone></IconPhone
+                          >{{ conference.contact_number1 }}
+                        </li>
+                        <li v-if="conference.email">
+                          <IconMail></IconMail>{{ conference.email }}
+                        </li>
+                      </ul>
+                      <ul class="course-meta">
+                        <li v-if="conference.country_name">
+                          <IconMap2 />{{ conference.country_name }}
+                        </li>
+                        <li v-if="conference.state_name">
+                          <IconCurrentLocation />{{ conference.state_name }}
+                        </li>
+                        <li v-if="conference.city_name">
+                          <IconBuildingSkyscraper />{{ conference.city_name }}
+                        </li>
+                      </ul>
                     </div>
-                    <h6 class="title" v-if="conference.conference_title">
-                      <nuxt-link :to="conference.domain" target="_blank">{{
-                        conference.conference_title
-                      }}</nuxt-link>
-                    </h6>
-                    <div class="course-rating" v-if="conference.address">
-                      <span class="rating-count"
-                        ><IconMapPin></IconMapPin>{{ conference.address }}</span
-                      >
-                    </div>
-                    <ul class="course-meta">
-                      <li v-if="conference.contact_number1">
-                        <IconPhone></IconPhone>{{ conference.contact_number1 }}
-                      </li>
-                      <li v-if="conference.email">
-                        <IconMail></IconMail>{{ conference.email }}
-                      </li>
-                    </ul>
-                    <ul class="course-meta">
-                      <li v-if="conference.country_name">
-                        <IconMap2 />{{ conference.country_name }}
-                      </li>
-                      <li v-if="conference.state_name">
-                        <IconCurrentLocation />{{ conference.state_name }}
-                      </li>
-                      <li v-if="conference.city_name">
-                        <IconBuildingSkyscraper />{{ conference.city_name }}
-                      </li>
-                    </ul>
                   </div>
                 </div>
               </div>
-            </div>
+            </template>
+            <template v-else>
+              <div>
+                <img
+                  src="/images/custom/no_data_found.png"
+                  alt="No Data Found"
+                />
+              </div>
+            </template>
           </div>
         </div>
       </div>
@@ -259,6 +270,7 @@ export default {
       filterCity: "",
       filterConferenceTag: "",
       filterConferenceType: "",
+      fetchConference: "",
       date: "upcomingDate",
       conference: "",
       data_fetch_countries: "",
@@ -354,7 +366,7 @@ export default {
       api()
         .post(
           "user-side/filter-conference-listing?date=" +
-            this.date +
+            this.fetchConference +
             "&country=" +
             this.filterCountry +
             "&state=" +

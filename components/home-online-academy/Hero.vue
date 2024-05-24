@@ -4,14 +4,16 @@
       <div class="row justify-content-center">
         <div class="col-lg-8">
           <div class="banner-content">
-            <h1 class="title">The Best Program to Enroll for Exchange</h1>
+            <h1 class="title">Global Innovators Conference 2024</h1>
             <p>
-              Excepteur sint occaecat cupidatat non proident sunt in culpa qui
-              officia deserunt mollit.
+              Join leading experts and innovators from around the world at the
+              Global Innovators Conference 2024. Engage in insightful
+              discussions, explore cutting-edge technologies, and network with
+              industry leaders to shape the future of innovation.
             </p>
             <div class="banner-btn">
-              <NuxtLink to="/course/course-one" class="edu-btn"
-                >Find courses <i class="icon-4"></i
+              <NuxtLink to="/conference" class="edu-btn"
+                >View Conference <i class="icon-4"></i
               ></NuxtLink>
             </div>
           </div>
@@ -25,7 +27,11 @@
         data-aos="fade-up"
         data-aos-duration="1000"
       >
-        <img src="/images/banner/girl-4.webp" alt="Girl Image" />
+        <img
+          src="/images/banner/Conference.jpg"
+          style="height: 350px; width: 350px"
+          alt="Girl Image"
+        />
       </div>
       <div
         class="thumbnail thumbnail-2"
@@ -33,7 +39,11 @@
         data-aos="fade-down"
         data-aos-duration="1000"
       >
-        <img src="/images/banner/girl-5.webp" alt="Girl Image" />
+        <img
+          src="/images/banner/Conference_1.jpg"
+          style="height: 300px; width: 250px"
+          alt="Girl Image"
+        />
       </div>
       <div
         class="thumbnail thumbnail-3"
@@ -41,7 +51,11 @@
         data-aos="fade-right"
         data-aos-duration="1000"
       >
-        <img src="/images/banner/girl-6.webp" alt="Girl Image" />
+        <img
+          src="/images/banner/Conference_2.jpg"
+          style="height: 200px; width: 150px"
+          alt="Girl Image"
+        />
       </div>
       <div
         class="online-support"

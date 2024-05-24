@@ -1,9 +1,9 @@
 <template>
-  <div class="edu-event-area" :class="extraClass">
+  <div class="edu-event-area edu-section-gap" :class="extraClass">
     <div class="container edublink-animated-shape">
       <SectionTitle
         preTitle="Conference"
-        title="Popular Events & News"
+        title="Upcoming Conference"
         alignment="section-center"
       />
       <div class="row g-5" v-if="conference">
@@ -25,8 +25,8 @@
         data-aos-duration="1200"
       >
         <h6 class="view-text">
-          The Latest Events from EduBlink.
-          <NuxtLink to="/event/event-grid" class="btn-transparent"
+          Tap on this link to view more conferences.
+          <NuxtLink to="/conference" class="btn-transparent"
             >View All <i class="icon-4"></i
           ></NuxtLink>
         </h6>

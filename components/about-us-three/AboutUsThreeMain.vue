@@ -12,9 +12,9 @@
 
     <ContactInfo />
 
-    <Instructor />
+    <!-- <Instructor /> -->
 
-    <Testimonial />
+    <!-- <Testimonial /> -->
 
     <FooterOne />
 

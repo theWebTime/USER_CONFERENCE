@@ -15,14 +15,12 @@
                   height="140"
                   width="140"
                 />
-                <!-- <img
+                <img
                   v-else
-                  class="logo-dark"
-                  src="/images/logo/logo-white.png"
+                  class="logo-light"
+                  src="/images/logo/logo-dark.png"
                   alt="Light Logo"
-                  height="140"
-                  width="140"
-                /> -->
+                />
               </NuxtLink>
             </div>
           </div>
@@ -69,7 +67,7 @@
 
     <SearchPopUp />
 
-    <OffCanvasMobileMenuOne />
+    <OffCanvasMobileMenuOne :site="site" />
   </header>
 </template>
 

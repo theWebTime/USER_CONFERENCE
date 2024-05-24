@@ -5,7 +5,7 @@
     <Categories :conferenceType="conferenceType" />
     <FAQ />
     <EventSectionOne :conference="conference" extraClass="event-area-2" />
-    <ContactInfo />
+    <!-- <ContactInfo /> -->
     <!-- <Blog /> -->
     <CTAOne addClassName="online-academy-cta-wrapper" />
     <FooterOne />

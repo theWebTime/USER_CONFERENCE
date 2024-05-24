@@ -8,8 +8,8 @@
         alignment="section-center"
         preTitle="CONFERENCE TYPES"
         preTitleClass="pre-textsecondary"
-        title='Online <span class="color-primary">Classes</span> For Remote Learning.'
-        subTitle="Consectetur adipiscing elit sed do eiusmod tempor."
+        title='Diverse <span class="color-primary">Conference</span> Tracks.'
+        subTitle="Dive into specialized tracks such as Technology, Healthcare, Sustainability, Business, and Education."
       />
 
       <div

@@ -3,11 +3,20 @@
     <div class="footer-top footer-top-2">
       <div class="container">
         <div class="row g-5">
-          <div class="col-lg-3 col-md-6">
+          <div class="col-lg-4 col-md-6">
             <div class="edu-footer-widget">
               <div class="logo">
                 <NuxtLink to="/">
                   <img
+                    v-if="site.logo"
+                    class="logo-light"
+                    :src="site.logo"
+                    alt="Dark Logo"
+                    height="140"
+                    width="140"
+                  />
+                  <img
+                    v-else
                     class="logo-dark"
                     src="/images/logo/logo-white.png"
                     alt="Light Logo"
@@ -15,8 +24,7 @@
                 </NuxtLink>
               </div>
               <p class="description">
-                Lorem ipsum dolor amet consecto adi pisicing elit sed eiusm
-                tempor incidid unt labore dolore.
+                Stay Connected for Conference Updates and News.
               </p>
               <div class="widget-information">
                 <ul class="information-list">
@@ -39,7 +47,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-sm-6">
+          <div class="col-lg-4 col-sm-6">
             <div class="edu-footer-widget explore-widget">
               <h4 class="widget-title">Pages</h4>
               <div class="inner">
