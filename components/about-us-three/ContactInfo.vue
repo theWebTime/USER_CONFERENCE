@@ -6,11 +6,11 @@
           <div
             class="home-four-cta edu-cta-box cta-style-3 bg-image bg-image--16"
           >
-            <div class="inner">
+            <div class="inner" v-if="site.email1">
               <div class="content text-end">
                 <span class="subtitle">Get In Touch:</span>
                 <h3 class="title">
-                  <a href="mailto:info@edublink">info@edublink</a>
+                  <a :href="'mailto:' + site.email1">{{ site.email1 }}</a>
                 </h3>
               </div>
               <div class="sparator">
@@ -19,7 +19,9 @@
               <div class="content">
                 <span class="subtitle">Call Us Via:</span>
                 <h3 class="title">
-                  <a href="tel:+011235641231">+01 123 5641 231</a>
+                  <a :href="'tel:' + site.phone_number1"
+                    >+91 {{ site.phone_number1 }}</a
+                  >
                 </h3>
               </div>
             </div>
@@ -54,5 +56,6 @@ export default {
   components: {
     MouseMove,
   },
+  props: ["site"],
 };
 </script>

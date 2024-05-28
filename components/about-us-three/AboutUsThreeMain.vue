@@ -4,13 +4,13 @@
 
     <BreadCrumbTwo title="About Us" />
 
-    <AboutThree />
+    <AboutThree :about="about" />
 
-    <FunFact />
+    <FunFact :countData="countData" />
 
     <WhyChoose />
 
-    <ContactInfo />
+    <ContactInfo :site="site" />
 
     <!-- <Instructor /> -->
 
@@ -52,6 +52,7 @@ export default {
       title: "About Us",
     };
   },
+  props: ["about", "countData", "site"],
 };
 </script>
 <style>

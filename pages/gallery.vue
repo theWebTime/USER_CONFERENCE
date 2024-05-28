@@ -3,25 +3,36 @@
     <HeaderThree />
 
     <BreadCrumbTwo pageTitle="Gallery" title="Gallery" />
-
     <div class="edu-gallery-area edu-section-gap">
       <div class="container">
         <div
           id="masonry-gallery"
           class="edublink-vue-gallery-masonry gallery-grid-wrap"
+          v-for="(item, index) in gallery"
+          :key="index"
         >
-          <masonry-wall :items="items">
-            <template #default="{ item, index }">
+          <div class="edu-gallery-grid masonry-item items">
+            <div class="thumbnail">
+              <img
+                :src="item.data"
+                style="height: 350px; width: 350px"
+                alt="Gallery Image"
+              />
+            </div>
+          </div>
+          <!-- <img :src="item.data" alt="Gallery Image" /> -->
+          <!-- <masonry-wall v-for="(item, index) in gallery" :key="index">
+            <template>
               <a class="edu-gallery-grid masonry-item items">
                 <div class="thumbnail">
-                  <img :src="item.thumb" alt="Gallery Image" />
+                  <img :src="item.data" alt="Gallery Image" />
                 </div>
                 <div class="zoom-icon" @click.prevent="handleImagePopup(index)">
                   <i class="icon-69"></i>
                 </div>
               </a>
             </template>
-          </masonry-wall>
+          </masonry-wall> -->
         </div>
       </div>
     </div>
@@ -58,7 +69,8 @@ export default {
   },
   data() {
     return {
-      items: [
+      gallery: "",
+      /* items: [
         {
           thumb: "/images/gallery/gallery-10.jpg",
           src: "/images/gallery/gallery-10.jpg",
@@ -95,7 +107,7 @@ export default {
           thumb: "/images/gallery/gallery-09.jpg",
           src: "/images/gallery/gallery-09.jpg",
         },
-      ],
+      ], */
     };
   },
   head() {
@@ -103,7 +115,19 @@ export default {
       title: "Gallery Masonry",
     };
   },
+  created() {
+    this.fetchDataGallery();
+  },
   methods: {
+    fetchDataGallery() {
+      api()
+        .get("user-side/show-all-gallery")
+        .then((res) => {
+          if (res.data.success) {
+            this.gallery = res.data.data;
+          }
+        });
+    },
     handleImagePopup(indexNum) {
       this.$refs.image_popup.showImg(indexNum);
     },

@@ -1,39 +1,77 @@
 <template>
-    <div class="counterup-area-9">
-        <div class="container edublink-animated-shape">
-            <div class="row g-5">
-                <div class="col-lg-3 col-sm-6" v-for="(counter, i) in funFacts" :key="i">
-                    <div class="edu-counterup counterup-style-4">
-                        <div class="icon" :class="counter.class">
-                            <i :class="counter.iconClass"></i>
-                        </div>
-                        <h2 class="counter-item count-number">
-                            <span>{{ counter.number }}</span>
-                            <span>{{ counter.suffix }}</span>
-                        </h2>
-                        <h6 class="title">{{ counter.title }}</h6>
-                    </div>
-                </div>
+  <div class="counterup-area-9">
+    <div class="container edublink-animated-shape">
+      <div class="row g-5">
+        <div class="col-lg-3 col-sm-6">
+          <div class="edu-counterup counterup-style-4">
+            <div class="icon primary-color">
+              <i class="icon-48"></i>
             </div>
-
-            <ul class="shape-group">
-                <MouseMove addClassName="shape-1" dataDepth="-1.8" imgSrc="/images/others/shape-27.png" data-aos-delay="500"
-                    data-aos="fade" data-aos-duration="200" />
-            </ul>
+            <h2 class="counter-item count-number">
+              <span>{{ countData.previousConference }}</span>
+            </h2>
+            <h6 class="title">Previous Conference</h6>
+          </div>
         </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="edu-counterup counterup-style-4">
+            <div class="icon primary-color">
+              <i class="icon-48"></i>
+            </div>
+            <h2 class="counter-item count-number">
+              <span>{{ countData.upcomingConference }}</span>
+            </h2>
+            <h6 class="title">Upcoming Conference</h6>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="edu-counterup counterup-style-4">
+            <div class="icon primary-color">
+              <i class="icon-48"></i>
+            </div>
+            <h2 class="counter-item count-number">
+              <span>{{ countData.conferenceTag }}</span>
+            </h2>
+            <h6 class="title">Conference Tag</h6>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="edu-counterup counterup-style-4">
+            <div class="icon primary-color">
+              <i class="icon-48"></i>
+            </div>
+            <h2 class="counter-item count-number">
+              <span>{{ countData.conferenceType }}</span>
+            </h2>
+            <h6 class="title">Conference Type</h6>
+          </div>
+        </div>
+      </div>
+
+      <ul class="shape-group">
+        <MouseMove
+          addClassName="shape-1"
+          dataDepth="-1.8"
+          imgSrc="/images/others/shape-27.png"
+          data-aos-delay="500"
+          data-aos="fade"
+          data-aos-duration="200"
+        />
+      </ul>
     </div>
+  </div>
 </template>
 
 <script>
-import MouseMove from '../animation/MouseMove.vue';
+import MouseMove from "../animation/MouseMove.vue";
 
 export default {
-    components: {
-        MouseMove
-    },
-    data() {
-        return {
-            funFacts: [
+  components: {
+    MouseMove,
+  },
+  data() {
+    return {
+      /*  funFacts: [
                 {
                     number: 29.3,
                     decimal: 1,
@@ -66,8 +104,9 @@ export default {
                     title: 'TOP INSTRUCTORS',
                     suffix: '+'
                 }
-            ]
-        }
-    }
-}
+            ] */
+    };
+  },
+  props: ["countData"],
+};
 </script>
